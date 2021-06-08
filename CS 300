@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>CS 200 Projects</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Main</a></li>
+							<li><a href="generic.html">About Me</a></li>
+							<li class="active"><a href="elements.html">CS 200 Projects</a></li>
+              <li class="active"><a href="CS 300.html">CS 300</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>CS 300 Projects</h1>
+								</header>
+                                <hr />
+
+								<!-- Text stuff -->
+									<h2>Overview</h2>
+                                    <p>Second semester computer science was CS 300. This class expanded my coding skills with the introduction of many techniques to make programs more efficient. These included using object in different classes, how to handle exceptions, inheritance and strategies for organizing data.</p>
+                                    
+
+									<hr />
+
+								<!-- Lists -->
+
+
+                                <h2>Object-Oriented Projects</h2>
+                                <p>The first object-oriented project was a "tracking app" that kept track of people who were getting vaccinated. There were objects for people, rooms and the occupancy. These were utilized in the main tracking app class.</p>
+									<dl>
+										<dt><u>If-Else</u></dt>
+										<dd>
+											<p>I used if-else statements along with try catch blocks in the code numerous times. One instance was in a test method that checked whether the code to parse certain fields was working correctly.</p>
+                                            <pre><code>    private static void testParseFields() {
+        boolean error = false;
+        {
+        	String fieldString = "size/This is the size of the map//";
+        	String[] expected = new String[]{"size","This is the size of the map","",""};
+        	String [] actual = Adventure.parseFields(fieldString);
+        	if (!Arrays.equals(expected, actual)) {
+        		System.out.println("testParseFields 1) Expected: " 
+                + Arrays.toString( expected) + " Actual: " +  Arrays.toString( actual));
+        		error = true;
+        	}
+        }
+        if ( error) {
+            System.out.println("Error in testParseFields.");
+        } else {
+            System.out.println("All tests in testParseFields passed.");
+        }
+    } 
+</code></pre>
+										</dd>
+                                        <dt><u>Loops</u></dt>
+										<dd>
+											<p>In the code I used various loops to iterate through arrays. One instance was a for loop I used to iterate through an array to trim each coordinate at each point.</p>
+                                            <pre><code>String[] array = fieldInformation.split("/",-1);
+    	for(int i = 0; i< array.length; i++) {
+    		array[i] = array[i].trim();
+    	}
+    	return array; </code></pre>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
