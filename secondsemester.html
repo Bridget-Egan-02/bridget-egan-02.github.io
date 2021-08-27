@@ -71,39 +71,72 @@
 
 
                                 <h2>Object-Oriented Projects</h2>
-                                <p>The first object-oriented project was a "tracking app" that kept track of people who were getting vaccinated. There were objects for people, rooms and the occupancy. These were utilized in the main tracking app class.</p>
+                                <p>The first object-oriented project was a game where the wolves would eat the bunnies. In this project I learned the difference between an Is-a relationship and a Has-a relationship. For instance, the bunnies could use anything from the animal class a bunny is an animal but the carrots could not.</p>
 									<dl>
-										<dt><u>If-Else</u></dt>
+										<dt><u>Is-a vs. Has-a</u></dt>
 										<dd>
-											<p>I used if-else statements along with try catch blocks in the code numerous times. One instance was in a test method that checked whether the code to parse certain fields was working correctly.</p>
-                                            <pre><code>    private static void testParseFields() {
-        boolean error = false;
-        {
-        	String fieldString = "size/This is the size of the map//";
-        	String[] expected = new String[]{"size","This is the size of the map","",""};
-        	String [] actual = Adventure.parseFields(fieldString);
-        	if (!Arrays.equals(expected, actual)) {
-        		System.out.println("testParseFields 1) Expected: " 
-                + Arrays.toString( expected) + " Actual: " +  Arrays.toString( actual));
-        		error = true;
-        	}
-        }
-        if ( error) {
-            System.out.println("Error in testParseFields.");
-        } else {
-            System.out.println("All tests in testParseFields passed.");
-        }
-    } 
+											<p>To get access to the animal code I had to add extends to the class to tell the code that it has access to the animal attributes. Now all the attributes given to animals like the ability to move, and the ability to eat were given to the bunnies. This taught me a lot about how to derive from different classes and the importance of the class heirarchy. </p>
+                                            <pre><code>    import java.io.File;
+import java.util.Objects;
+
+public class Rabbit extends Animal{
+  private static final String RABBIT = "images"+ File.separator + "rabbit.png";
+  private static final String TYPE = "R"; // A String that represents the rabbit type
+  private static int hopStep = 70; // one hop step
+  private static int scanRange = 175; // scan range to watch out for threats
+  private static int nextID = 1; // class variable that represents the identifier
+  // of the next rabbit to be created
+  private final int ID; // positive number that represents the order of this rabbit
+  /**
+  * Creates a new rabbit object located at a random position of the display window
+  */
+  public Rabbit() {
+  // Set rabbit drawing parameters
+  super(RABBIT);
+  // Set rabbit identification fields
+  ID = nextID;
+  this.label = TYPE + ID; // String that identifies the current rabbit
+  nextID++;
+  } 
 </code></pre>
 										</dd>
-                                        <dt><u>Loops</u></dt>
+                                        <dt><u>Recursion</u></dt>
 										<dd>
-											<p>In the code I used various loops to iterate through arrays. One instance was a for loop I used to iterate through an array to trim each coordinate at each point.</p>
-                                            <pre><code>String[] array = fieldInformation.split("/",-1);
-    	for(int i = 0; i< array.length; i++) {
-    		array[i] = array[i].trim();
-    	}
-    	return array; </code></pre>
+											<p>In this class I also learned about recursion through several projects including the movie project that organized movies based off of different criteria. In the code below I used recursion to recursively order the movies in String representation. Through this project I learned how recursion can be used to make code more efficient when repeating the same steps. </p>
+                                            <pre><code> @Override
+  public String toString() {
+    if(size == 1) {
+      return this.root.getData().toString();
+    }
+    return toStringHelper(root);
+  }
+
+  /**
+   * Recursive helper method which returns a String representation of the BST rooted at current. An
+   * example of the String representation of the contents of a MovieTree is provided in the
+   * description of the above toString() method.
+   * 
+   * @param current reference to the current movie within this BST (root of a subtree)
+   * @return a String representation of all the movies stored in the sub-tree rooted at current in
+   *         increasing order with respect to the result of Movie.compareTo() method (year, rating,
+   *         name). Returns an empty String "" if current is null.
+   */
+  protected static String toStringHelper(BSTNode<Movie> current) {
+    String result = "";
+    if(current == null) {
+      return "";
+    }
+    //add left node
+    if(current.getLeft() != null ) {
+      result += toStringHelper(current.getLeft());
+    }
+    result += current.getData().toString() + "\n";
+    //add right node
+    if(current.getRight() != null) {
+      result += toStringHelper(current.getRight());
+    }
+    return result; // remove this statement.
+  } </code></pre>
 
 				<!-- Copyright -->
 					<div id="copyright">
